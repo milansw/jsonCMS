@@ -46,11 +46,14 @@
 			$f = file_get_contents($this->jfn);
 			$this->json = json_decode($f);
 
-			foreach($this->json as $p){
+			foreach($this->json as $key => $p){
 				if($p->filename == $pfn){
-					unset($this->json[array_search($p,$this->json)]);
+					unset($this->json[$key]);
+					//unset($this->json[array_search($p,$this->json)]);
 				}
 			}
+
+			$this->json = array_values($this->json); // important to reset the values of the array to start at 0
 
 			file_put_contents($this->jfn, json_encode($this->json));
 

@@ -14,3 +14,8 @@ form#upload{
 	form#upload label{
 		margin-bottom: 5px;
 	}
+
+.thumbnail .btn{
+	margin-right: 5px;
+	margin-bottom: 5px;
+}

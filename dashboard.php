@@ -49,6 +49,7 @@
 								echo "<p>" . $p->caption . "</p>";
 								echo "<p>" . date("F j Y, g:i a", $p->date_uploaded) . "</p>";
 								echo "<button class='btn btn-primary' data-toggle='modal' data-target='#modal".$count."'>Edit caption</button>";
+								echo "<a href='remove.php?fn=".$p->filename."' class='btn btn-danger'>Remove photo</a>";
 							echo "</div>";
 						echo "</div>";
 
