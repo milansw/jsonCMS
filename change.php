@@ -39,6 +39,22 @@
 			file_put_contents($this->jfn, json_encode($this->json));
 
 		}
+
+		function editCaption($pfn,$nc){
+
+			$f = file_get_contents($this->jfn);
+			$this->json = json_decode($f);
+
+			foreach($this->json as $p){
+				if($p->filename == $pfn){
+					$p->caption = $nc;
+					break;
+				}
+			}
+
+			file_put_contents($this->jfn, json_encode($this->json));
+
+		}
 	}
 
 	
