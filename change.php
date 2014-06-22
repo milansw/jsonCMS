@@ -19,7 +19,7 @@
 			$this->json = json_decode($f);
 
 			$p = new Photo($pfn,$c);
-			array_push($this->json,$p);
+			$this->json[] = $p;
 
 			file_put_contents($this->jfn, json_encode($this->json));
 
