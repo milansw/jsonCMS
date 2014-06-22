@@ -13,7 +13,7 @@ require 'change.php';
 
 $c = new changeJSON("portfolio.json");
 
-// $c->addPhoto("helloworld2","some caption");
+// $c->addPhoto("helloworld3","some caption");
 // $c->removePhoto("helloworld");
 
 // $c->editCaption("helloworld","some edited caption");
