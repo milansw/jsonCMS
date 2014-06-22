@@ -30,13 +30,13 @@
 			$f = file_get_contents($this->jfn);
 			$this->json = json_decode($f);
 
-			// iterate over array finding matching filenames and unset()
+			foreach($this->json as $p){
+				if($p->filename == $pfn){
+					unset($this->json[array_search($p,$this->json)]);
+				}
+			}
 
-			// foreach
-
-			// unset($this->json[$id]);
-
-			// file_put_contents($this->jfn, json_encode($this->json));
+			file_put_contents($this->jfn, json_encode($this->json));
 
 		}
 	}
