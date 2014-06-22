@@ -11,6 +11,8 @@
 	<title>Dashboard - jsonPortfolio</title>
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="style.css">
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -26,11 +28,11 @@
 
 					<label for="caption" class="control-label">Caption: </label>
 					<input type="text" name="caption" class="form-control">
-					<input type="submit" name="submit" value="Submit" class="btn btn-success">
+					<input type="submit" name="submit" value="Submit" class="btn btn-primary">
 				</form>
 			</div>
 		</div>
-		
+
 		<?php /*
 		<p><?php echo $f ?></p>
 		<p><?php print_r($json); ?></p>
@@ -38,16 +40,40 @@
 
 		<div class="row">
 			<?php
+				$count = 0;
 				foreach($json as $p){
 					echo "<div class='col-xs-6 col-sm-3'>";
 						echo "<div class='thumbnail'>";
 							echo "<a href='#'><img src='photos/thumb-" . $p->filename . "'></a>";
 							echo "<div class='caption'>";
 								echo "<p>" . $p->caption . "</p>";
-								echo "<p>" . $p->date_uploaded . "</p>";
+								echo "<p>" . date("F j Y, g:i a", $p->date_uploaded) . "</p>";
+								echo "<button class='btn btn-primary' data-toggle='modal' data-target='#modal".$count."'>Edit caption</button>";
 							echo "</div>";
 						echo "</div>";
+
+						echo "
+							<div class='modal fade' id='modal".$count."' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>";
+						echo <<<X
+							  <div class="modal-dialog">
+							    <div class="modal-content">
+							      <div class="modal-header">
+							        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							        <h4 class="modal-title" id="myModalLabel">Edit caption</h4>
+							      </div>
+							      <div class="modal-body">
+							        ...
+							      </div>
+							      <div class="modal-footer">
+							        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							        <button type="button" class="btn btn-primary">Save changes</button>
+							      </div>
+							    </div>
+							  </div>
+							</div>
+X;
 					echo "</div>";
+					$count++;
 				}
 			?>
 		</div>
