@@ -17,7 +17,7 @@
 		}
 
 		// You should also check filesize here. 
-		if ($_FILES['upfile']['size'] > 10000000) { //25MB
+		if ($_FILES['upfile']['size'] > 10000000) { //10MB
 			throw new RuntimeException('Exceeded filesize limit.');
 		}
 
@@ -61,11 +61,11 @@
         $thumb->load($uploadpath);
 
         if ($thumb->getWidth() > $thumb->getHeight()){
-        	$thumb->resizeToHeight(150);
-        	$thumb->resize_crop(175,150);
+        	$thumb->resizeToHeight(200);
+        	$thumb->resize_crop(250,200);
         }else{
-        	$thumb->resizeToWidth(175);
-        	$thumb->resize_crop(175,150);
+        	$thumb->resizeToWidth(250);
+        	$thumb->resize_crop(250,200);
         }
 
         $thumb->save($thumb_uploadpath);

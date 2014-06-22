@@ -1,0 +1,16 @@
+h1{
+	font-weight: bold;
+}
+
+form#upload{
+
+}
+	form#upload input[type=file]{
+		display: inline;
+	}
+	form#upload input[type=text]{
+		margin-bottom: 10px;
+	}
+	form#upload label{
+		margin-bottom: 5px;
+	}
