@@ -39,6 +39,11 @@
 				$fn,
 				'jpg'
 			);
+		$thumb_uploadpath = sprintf('photos/%s-%s.%s',
+				'thumb',
+				$fn,
+				'jpg'
+			);
 
 		if (!move_uploaded_file(
 			$_FILES['upfile']['tmp_name'],
@@ -51,6 +56,19 @@
         $image->load($uploadpath);
         $image->resizeToWidth(800);
         $image->save($uploadpath);
+
+        $thumb = new SimpleImage();
+        $thumb->load($uploadpath);
+
+        if ($thumb->getWidth() > $thumb->getHeight()){
+        	$thumb->resizeToHeight(150);
+        	$thumb->resize_crop(175,150);
+        }else{
+        	$thumb->resizeToWidth(175);
+        	$thumb->resize_crop(175,150);
+        }
+
+        $thumb->save($thumb_uploadpath);
 
         $caption = $_POST['caption'];
 

@@ -99,7 +99,12 @@ class SimpleImage {
       $new_image = imagecreatetruecolor($width, $height);
       imagecopyresampled($new_image, $this->image, 0, 0, 0, 0, $width, $height, $this->getWidth(), $this->getHeight());
       $this->image = $new_image;
-   }      
- 
+   }     
+
+   function resize_crop($width,$height){
+      $new_image = imagecreatetruecolor($width, $height);
+      imagecopyresampled($new_image, $this->image, 0, 0, 0, 0, $width, $height, $width, $height);
+      $this->image = $new_image;
+   }
 }
 ?>
