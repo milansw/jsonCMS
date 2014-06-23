@@ -13,6 +13,14 @@
 	<link rel="stylesheet" href="style.css">
 	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script src="js/masonry.pkgd.min.js"></script>
+	<script>
+		var container = $('#rowcontainer');
+		container.masonry({
+		  columnWidth: 200,
+		  itemSelector: '.photo'
+		});
+	</script>
 </head>
 
 <body>
@@ -33,16 +41,11 @@
 			</div>
 		</div>
 
-		<?php /*
-		<p><?php echo $f ?></p>
-		<p><?php print_r($json); ?></p>
-		*/ ?>
-
-		<div class="row">
+		<div class="row js-masonry" id="rowcontainer">
 			<?php
 				$count = 0;
 				foreach($json as $p){
-					echo "<div class='col-xs-6 col-sm-3'>";
+					echo "<div class='photo col-xs-6 col-sm-3'>"; //
 						echo "<div class='thumbnail'>";
 							echo "<a href='#'><img src='photos/thumb-" . $p->filename . "'></a>";
 							echo "<div class='caption'>";
