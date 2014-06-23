@@ -28,7 +28,7 @@
 
 					<label for="caption" class="control-label">Caption: </label>
 					<input type="text" name="caption" class="form-control">
-					<input type="submit" name="submit" value="Submit" class="btn btn-primary">
+					<input type="submit" name="submit" value="Upload" class="btn btn-primary">
 				</form>
 			</div>
 		</div>
@@ -53,26 +53,8 @@
 							echo "</div>";
 						echo "</div>";
 
-						echo "
-							<div class='modal fade' id='modal".$count."' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>";
-						echo <<<X
-							  <div class="modal-dialog">
-							    <div class="modal-content">
-							      <div class="modal-header">
-							        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-							        <h4 class="modal-title" id="myModalLabel">Edit caption</h4>
-							      </div>
-							      <div class="modal-body">
-							        ...
-							      </div>
-							      <div class="modal-footer">
-							        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-							        <button type="button" class="btn btn-primary">Save changes</button>
-							      </div>
-							    </div>
-							  </div>
-							</div>
-X;
+						include 'includes/editcaption_modal.php';
+
 					echo "</div>";
 					$count++;
 				}

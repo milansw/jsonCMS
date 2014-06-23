@@ -2,18 +2,15 @@ h1{
 	font-weight: bold;
 }
 
-form#upload{
-
+form input[type=file]{
+	display: inline;
 }
-	form#upload input[type=file]{
-		display: inline;
-	}
-	form#upload input[type=text]{
-		margin-bottom: 10px;
-	}
-	form#upload label{
-		margin-bottom: 5px;
-	}
+form input[type=text]{
+	margin-bottom: 10px;
+}
+form label{
+	margin-bottom: 5px;
+}
 
 .thumbnail .btn{
 	margin-right: 5px;
