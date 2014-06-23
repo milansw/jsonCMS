@@ -55,6 +55,15 @@
 
 			$this->json = array_values($this->json); // important to reset the values of the array to start at 0
 
+			$path = realpath('photos/'.$pfn);
+			$path_thumb = realpath('photos/thumb-'.$pfn);
+			if(is_readable($path)){
+				unlink($path);
+			}
+			if(is_readable($path_thumb)){
+				unlink($path_thumb);
+			}
+
 			file_put_contents($this->jfn, json_encode($this->json));
 
 		}
