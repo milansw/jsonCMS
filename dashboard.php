@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	// dashboard
 	$f = file_get_contents('portfolio.json');
 	$json = json_decode($f);
@@ -27,6 +28,14 @@
 	<div class="container">
 
 		<h1>JSONPortfolio</h1>
+
+		<?php
+			if(isset($_SESSION['flash'])){
+				echo sprintf("<div class='alert alert-%s'>%s</div>",$_SESSION['flash']['type'],$_SESSION['flash']['message']);
+				unset($_SESSION['flash']);
+			}
+		?>
+
 		<div class="panel panel-default">
 			<div class="panel-body">
 				<form id="upload" class="form-horizontal" action="upload.php" method="post" enctype="multipart/form-data">

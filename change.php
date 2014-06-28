@@ -1,8 +1,13 @@
 <?php
-
+	session_start();
 	// add/remove/edit
 
 	require 'photo.php';
+
+	function flashMessage($type, $message){
+		
+		$_SESSION['flash'] = array('type' => $type, 'message' => $message);
+	}
 
 	function cleanInput($input) {
  
@@ -69,6 +74,10 @@
 		}
 
 		function editCaption($pfn,$nc){
+
+			if(strlen($nc) > 140){
+				throw new RuntimeException("Caption must be 140 characters or less.");
+			}
 
 			$f = file_get_contents($this->jfn);
 			$this->json = json_decode($f);
