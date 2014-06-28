@@ -72,13 +72,20 @@
 
         $caption = $_POST['caption'];
 
-        $c = new changeJSON("portfolio.json");
-        $c->addPhoto($fn . ".jpg",$caption);
+        try{
+
+	        $c = new changeJSON("portfolio.json");
+	        $c->addPhoto($fn . ".jpg",$caption);
+
+	    } catch (RuntimeException $e){
+			throw $e;
+		}
 
         header("Location: index.php");
 
 	} catch (RuntimeException $e){
-		echo $e->getMessage();
+		flashMessage('danger', $e->getMessage());
+		header("Location: dashboard.php");
 	}
 
 ?>

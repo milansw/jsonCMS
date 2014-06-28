@@ -34,6 +34,10 @@
 
 		function addPhoto($pfn,$c){
 
+			if(strlen($c) > 140){
+				throw new RuntimeException("Caption must be 140 characters or less.");
+			}
+
 			$f = file_get_contents($this->jfn);
 			$this->json = json_decode($f);
 
