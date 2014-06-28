@@ -16,6 +16,8 @@ form label{
 	margin-right: 5px;
 	margin-bottom: 5px;
 }
-/*.photo{
-	width: 200px;
-}*/
+
+.logout{
+	margin-bottom: 15px;
+	display: block;
+}

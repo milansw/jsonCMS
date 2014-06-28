@@ -32,6 +32,7 @@
 	<div class="container">
 
 		<h1>JSONPortfolio</h1>
+		<div class="logout">Logged in as <strong><?php echo $_SESSION['user'] ?></strong>. <a href="logout.php">Logout</a></div>
 
 		<?php
 			if(isset($_SESSION['flash'])){

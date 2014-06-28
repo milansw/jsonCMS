@@ -1,4 +1,6 @@
 <?php
+
+	require 'checklogin.php';
 	require 'change.php';
 
 	

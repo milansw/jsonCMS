@@ -1,4 +1,7 @@
 <?php
+	session_start();
+
+	require 'checklogin.php';
 	
 	if(!$_FILES['upfile']){
 		header("Location: dashboard.php");

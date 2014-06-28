@@ -1,5 +1,5 @@
 <?php
-
+	require 'checklogin.php';
 	require 'change.php';
 
 	$c = new changeJSON("portfolio.json");
