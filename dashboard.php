@@ -1,6 +1,10 @@
 <?php
 	session_start();
-	// dashboard
+	
+	if(!isset($_SESSION['logged_in'])){
+		header("Location: index.php");
+	}
+
 	$f = file_get_contents('portfolio.json');
 	$json = json_decode($f);
 ?>

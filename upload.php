@@ -1,5 +1,9 @@
 <?php
 	
+	if(!$_FILES['upfile']){
+		header("Location: dashboard.php");
+	}
+
 	require 'change.php';
 	require 'simpleimg.php';
 
