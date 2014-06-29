@@ -8,7 +8,7 @@
 	$f = file_get_contents('json/portfolio.json');
 	$json = json_decode($f);
 	$g = file_get_contents('json/content.json');
-	$cjson = json_decode($g);
+	$cjson = json_decode($g,true);
 ?>
 <!DOCTYPE html>
 <html>
@@ -91,12 +91,34 @@
 	<section id="content">
 
 		<div class="container">
-
-			<div class="contentjson">
-				<?php print_r($cjson); ?>
-			</div>
-
+			<?php print_r($cjson); ?>
 		</div>
+
+		<?php
+
+			foreach($cjson as $group=>$info){
+				echo "<div class='container'>";
+					echo sprintf("<div class='group'>%s</div>",$group);
+				foreach($info as $var=>$value){
+					echo sprintf("<form action='editcontent' method='post' class='form-inline' id='%s_%s'>",$group,$var);
+						echo sprintf("<input type='hidden' name='group' value='%s'>",$group);
+						echo "<div class='row'>";
+							echo "<div class='col-sm-3'>";
+								echo sprintf("<input class='form-control' type='text' name='var' value='%s'>",$var,$var);
+							echo "</div>";
+							echo "<div class='col-sm-8'>";
+								echo sprintf("<textarea class='form-control' name='value'>%s</textarea>",$value);
+							echo "</div>";
+							echo "<div class='col-sm-1'>";
+								echo "<input class='btn btn-success' type='submit' value='Submit'>";
+							echo "</div>";
+						echo "</div>";
+					echo "</form>";
+				}
+				echo "</div>";
+			}
+
+		?>
 
 	</section>
 </body>
