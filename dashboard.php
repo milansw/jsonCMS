@@ -27,6 +27,12 @@
 		  columnWidth: 200,
 		  itemSelector: '.photo'
 		});
+
+		$(function(){
+			$("#content textarea").each(function(){
+				$(this).css("height", $(this).prop("scrollHeight")+20+"px");
+			})
+		})
 	</script>
 </head>
 
@@ -100,14 +106,14 @@
 				echo "<div class='container'>";
 					echo sprintf("<div class='group'>%s</div>",$group);
 				foreach($info as $var=>$value){
-					echo sprintf("<form action='editcontent' method='post' class='form-inline' id='%s_%s'>",$group,$var);
+					echo sprintf("<form action='editcontent' method='post' class='form-horizontal' id='%s_%s'>",$group,$var);
 						echo sprintf("<input type='hidden' name='group' value='%s'>",$group);
 						echo "<div class='row'>";
 							echo "<div class='col-sm-3'>";
 								echo sprintf("<input class='form-control' type='text' name='var' value='%s'>",$var,$var);
 							echo "</div>";
 							echo "<div class='col-sm-8'>";
-								echo sprintf("<textarea class='form-control' name='value'>%s</textarea>",$value);
+								echo sprintf("<textarea class='form-control' name='value' id='%s_%s_textarea'>%s</textarea>",$group,$var,$value);
 							echo "</div>";
 							echo "<div class='col-sm-1'>";
 								echo "<input class='btn btn-success' type='submit' value='Submit'>";
