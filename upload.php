@@ -81,7 +81,7 @@
 
         try{
 
-	        $c = new changeJSON("portfolio.json");
+	        $c = new changeJSON("json/portfolio.json");
 	        $c->addPhoto($fn . ".jpg",$caption);
 
 	    } catch (RuntimeException $e){

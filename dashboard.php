@@ -5,7 +5,7 @@
 		header("Location: index.php");
 	}
 
-	$f = file_get_contents('portfolio.json');
+	$f = file_get_contents('json/portfolio.json');
 	$json = json_decode($f);
 ?>
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Dashboard - jsonPortfolio</title>
+	<title>Dashboard - jsonCMS</title>
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="style.css">
 	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -31,7 +31,7 @@
 <body>
 	<div class="container">
 
-		<h1>JSONPortfolio</h1>
+		<h1>jsonCMS</h1>
 		<div class="logout">Logged in as <strong><?php echo $_SESSION['user'] ?></strong>. <a href="logout.php">Logout</a></div>
 
 		<?php

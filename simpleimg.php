@@ -19,6 +19,8 @@
 * http://www.gnu.org/licenses/gpl.html
 *
 */
+
+// added resize_crop method
  
 class SimpleImage {
  
