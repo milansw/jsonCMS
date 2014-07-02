@@ -12,6 +12,16 @@ h1{
 	margin-bottom: 5px;
 }
 
+#content form{
+	/*margin-bottom: 15px;*/
+}
+	#content form input{
+		margin-bottom: 15px;
+	}
+	#content textarea{
+		margin-bottom: 15px;
+	}
+
 .thumbnail .btn{
 	margin-right: 5px;
 	margin-bottom: 5px;

@@ -9,6 +9,7 @@
 		$_SESSION['flash'] = array('type' => $type, 'message' => $message);
 	}
 
+	// cleanInput function from http://css-tricks.com/snippets/php/sanitize-database-inputs/
 	function cleanInput($input) {
  
 		$search = array(
@@ -98,6 +99,33 @@
 			file_put_contents($this->jfn, json_encode($this->json));
 
 		}
+	}
+
+	class changeContent {
+
+		private $json;
+		private $jfn;
+
+		function __construct($j){
+			$this->jfn = $j;
+		}
+
+		function addGroup($n){
+
+			if(strlen($c) > 20){
+				throw new RuntimeException("Group name must be 20 characters or less.");
+			}
+
+			$f = file_get_contents($this->jfn);
+			$this->json = json_decode($f,true);
+
+			$groupname = cleanInput($n);
+
+			$this->json[] = $groupname;
+			file_put_contents($this->jfn, json_encode($this->json));
+
+		}
+
 	}
 
 	
