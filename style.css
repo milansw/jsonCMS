@@ -2,13 +2,13 @@ h1{
 	font-weight: bold;
 }
 
-form input[type=file]{
+#portfolio form input[type=file]{
 	display: inline;
 }
-form input[type=text]{
+#portfolio form input[type=text]{
 	margin-bottom: 10px;
 }
-form label{
+#portfolio form label{
 	margin-bottom: 5px;
 }
 
@@ -21,3 +21,4 @@ form label{
 	margin-bottom: 15px;
 	display: block;
 }
+
