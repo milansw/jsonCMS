@@ -100,6 +100,18 @@
 			<?php // print_r($cjson); ?>
 		<!-- </div> -->
 
+		<div class="container">
+
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<form action="addgroup.php" class="form-inline" id="addgroup" method="post">
+						<input type="text" class="form-control" name="groupname" placeholder="Group name">
+						<input type="submit" value="Add New Group" class="btn btn-info">
+					</form>
+				</div>
+			</div>
+		</div>
+
 		<?php
 
 			foreach($cjson as $group=>$info){
@@ -108,7 +120,7 @@
 						echo sprintf("<div class='panel-heading'>%s</div>",$group);
 						echo "<div class='panel-body'>";
 							foreach($info as $var=>$value){
-								echo sprintf("<form action='editcontent.php' method='post' class='form-horizontal' id='%s_%s'>",$group,$var);
+								echo sprintf("<form action='editcontent.php' method='post' class='form-horizontal editvar' id='%s_%s'>",$group,$var);
 									echo sprintf("<input type='hidden' name='group' value='%s'>",$group);
 										echo "<div class='row'>";
 											echo "<div class='col-sm-3'>";

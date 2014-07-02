@@ -121,11 +121,11 @@
 
 			$groupname = cleanInput($n);
 
-			$this->json[] = $groupname;
+			$this->json[$groupname] = (object)array('' => '');
+
 			file_put_contents($this->jfn, json_encode($this->json));
 
 		}
-
 	}
 
 	

@@ -12,13 +12,10 @@ h1{
 	margin-bottom: 5px;
 }
 
-#content form{
-	/*margin-bottom: 15px;*/
-}
-	#content form input{
+	#content form.editvar input{
 		margin-bottom: 15px;
 	}
-	#content textarea{
+	#content form.editvar textarea{
 		margin-bottom: 15px;
 	}
 
