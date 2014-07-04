@@ -119,6 +119,22 @@
 					echo "<div class='panel panel-info'>";
 						echo sprintf("<div class='panel-heading'>%s</div>",$group);
 						echo "<div class='panel-body'>";
+						?>
+						<form action="changevar.php" method="post" class="form-horizontal editvar" id="addnewvar">
+							<?php echo sprintf("<input type='hidden' name='group' value='%s'>",$group); ?>
+							<div class="row">
+								<div class="col-sm-2">
+									<input type="text" name="var" class="form-control" placeholder="New var name">
+								</div>
+								<div class="col-sm-9">
+									<textarea class="form-control" name="value" id="newvartextarea"></textarea>
+								</div>
+								<div class="col-sm-1">
+									<input class="btn btn-info" type="submit" value="Add">
+								</div>
+							</div>
+						</form>
+						<?php
 							foreach($info as $var=>$value){
 								echo sprintf("<form action='changevar.php' method='post' class='form-horizontal editvar' id='%s_%s'>",$group,$var);
 									echo sprintf("<input type='hidden' name='group' value='%s'>",$group);
