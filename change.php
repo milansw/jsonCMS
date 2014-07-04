@@ -126,6 +126,22 @@
 			file_put_contents($this->jfn, json_encode($this->json));
 
 		}
+
+		function changeVar($group,$var,$newvalue){
+
+			$f = file_get_contents($this->jfn);
+			$this->json = json_decode($f,true);
+
+			$group = cleanInput($group);
+			$var = cleanInput($var);
+			$newvalue = cleanInput($newvalue);
+
+			$this->json[$group][$var] = $newvalue;
+
+			file_put_contents($this->jfn, json_encode($this->json));
+
+		}
+
 	}
 
 	

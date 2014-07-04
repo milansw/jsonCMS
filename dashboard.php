@@ -120,17 +120,18 @@
 						echo sprintf("<div class='panel-heading'>%s</div>",$group);
 						echo "<div class='panel-body'>";
 							foreach($info as $var=>$value){
-								echo sprintf("<form action='editcontent.php' method='post' class='form-horizontal editvar' id='%s_%s'>",$group,$var);
+								echo sprintf("<form action='changevar.php' method='post' class='form-horizontal editvar' id='%s_%s'>",$group,$var);
 									echo sprintf("<input type='hidden' name='group' value='%s'>",$group);
 										echo "<div class='row'>";
-											echo "<div class='col-sm-3'>";
-												echo sprintf("<input class='form-control' type='text' name='var' value='%s'>",$var,$var);
+											echo "<div class='col-sm-2'>";
+												echo sprintf("<input type='hidden' name='var' value='%s'>",$var);
+												echo "<p>" . $var . "</p>";
 											echo "</div>";
-											echo "<div class='col-sm-8'>";
+											echo "<div class='col-sm-9'>";
 												echo sprintf("<textarea class='form-control' name='value' id='%s_%s_textarea'>%s</textarea>",$group,$var,$value);
 											echo "</div>";
 											echo "<div class='col-sm-1'>";
-												echo "<input class='btn btn-info' type='submit' value='Submit'>";
+												echo "<input class='btn btn-info' type='submit' value='Change'>";
 											echo "</div>";
 										echo "</div>";
 								echo "</form>";
