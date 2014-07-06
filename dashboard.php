@@ -58,12 +58,10 @@
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<form id="upload" class="form-horizontal" action="upload.php" method="post" enctype="multipart/form-data">
-						<label for="file" class="control-label">Filename:</label>
 						<input type="hidden" name="MAX_FILE_SIZE" value="10000000" /> 
-						<input type="file" name="upfile" id="upfile"><br>
+						<input type="file" name="upfile" id="upfile"><br><br>
 
-						<label for="caption" class="control-label">Caption: </label>
-						<input type="text" name="caption" class="form-control">
+						<input type="text" name="caption" class="form-control" placeholder="Caption">
 						<input type="submit" name="submit" value="Upload" class="btn btn-primary">
 					</form>
 				</div>
@@ -126,11 +124,11 @@
 								<div class="col-sm-2">
 									<input type="text" name="var" class="form-control" placeholder="New var name">
 								</div>
-								<div class="col-sm-9">
+								<div class="col-sm-8">
 									<textarea class="form-control" name="value" id="newvartextarea"></textarea>
 								</div>
-								<div class="col-sm-1">
-									<input class="btn btn-info" type="submit" value="Add">
+								<div class="col-sm-2">
+									<input class="btn btn-info btn-block" type="submit" value="Add">
 								</div>
 							</div>
 						</form>
@@ -143,11 +141,11 @@
 												echo sprintf("<input type='hidden' name='var' value='%s'>",$var);
 												echo "<p>" . $var . "</p>";
 											echo "</div>";
-											echo "<div class='col-sm-9'>";
+											echo "<div class='col-sm-8'>";
 												echo sprintf("<textarea class='form-control' name='value' id='%s_%s_textarea'>%s</textarea>",$group,$var,$value);
 											echo "</div>";
-											echo "<div class='col-sm-1'>";
-												echo "<input class='btn btn-info' type='submit' value='Change'>";
+											echo "<div class='col-sm-2'>";
+												echo "<input class='btn btn-info btn-block' type='submit' value='Change'>";
 											echo "</div>";
 										echo "</div>";
 								echo "</form>";

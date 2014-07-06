@@ -34,7 +34,7 @@
 		$finfo = finfo_open(FILEINFO_MIME_TYPE);
 		
 		if(finfo_file($finfo, $_FILES['upfile']['tmp_name']) != 'image/jpeg'){
-			throw new RuntimeException('Invalid file format.' . finfo_file($finfo, $_FILES['upfile']['tmp_name']));
+			throw new RuntimeException('Invalid file format: ' . finfo_file($finfo, $_FILES['upfile']['tmp_name']) . '. Must be a jpg image.');
 		}
 
 		// You should name it uniquely.
@@ -88,7 +88,7 @@
 			throw $e;
 		}
 
-        header("Location: index.php");
+        header("Location: dashboard.php");
 
 	} catch (RuntimeException $e){
 		flashMessage('danger', $e->getMessage());
