@@ -23,23 +23,15 @@
 				throw new RuntimeException('Unknown errors.');
 		}
 
-		// You should also check filesize here. 
 		if ($_FILES['upfile']['size'] > 10000000) { //10MB
 			throw new RuntimeException('Exceeded filesize limit.');
 		}
-
-		// DO NOT TRUST $_FILES['upfile']['mime'] VALUE !!
-		// Check MIME Type by yourself.
 
 		$finfo = finfo_open(FILEINFO_MIME_TYPE);
 		
 		if(finfo_file($finfo, $_FILES['upfile']['tmp_name']) != 'image/jpeg'){
 			throw new RuntimeException('Invalid file format: ' . finfo_file($finfo, $_FILES['upfile']['tmp_name']) . '. Must be a jpg image.');
 		}
-
-		// You should name it uniquely.
-		// DO NOT USE $_FILES['upfile']['name'] WITHOUT ANY VALIDATION !!
-		// On this example, obtain safe unique name from its binary data.
 		
 		$fn = sha1_file($_FILES['upfile']['tmp_name']);
 		$uploadpath = sprintf('../photos/%s.%s',
