@@ -156,6 +156,20 @@
 
 		}
 
+		function removeGroup($group){
+
+			$f = file_get_contents($this->jfn);
+			$this->json = json_decode($f,true);
+
+			$group = cleanInput($group);
+
+			unset($this->json[$group]);
+			// unset($this->json[$group]);
+
+			file_put_contents($this->jfn, json_encode($this->json));
+
+		}
+
 	}
 
 	

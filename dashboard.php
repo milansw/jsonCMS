@@ -115,7 +115,14 @@
 			foreach($cjson as $group=>$info){
 				echo "<div class='container'>";
 					echo "<div class='panel panel-info'>";
-						echo sprintf("<div class='panel-heading'>%s</div>",$group);
+						// echo sprintf("<div class='panel-heading'>%s</div>",$group);
+
+						echo "<div class='panel-heading'>";
+							echo $group;
+							echo sprintf("<a class='pull-right btn btn-danger btn-xs' href='removegroup.php?group=%s'><span class='glyphicon glyphicon-remove'></span> Remove Group</a>",$group);
+						echo "</div>";
+
+
 						echo "<div class='panel-body'>";
 						?>
 						<form action="changevar.php" method="post" class="form-horizontal editvar" id="addnewvar">
