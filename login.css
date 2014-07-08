@@ -1,3 +1,6 @@
+body{
+	padding-top: 20px;
+}
 form{
 	max-width: 350px;
 	margin: 0 auto;
