@@ -24,7 +24,7 @@
 
 	}
 
-	class changeJSON {
+	class changePortfolio {
 
 		private $json;
 		private $jfn;

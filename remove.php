@@ -7,7 +7,7 @@
 		header("Location: dashboard.php");
 	}
 
-	$c = new changeJSON("json/portfolio.json");
+	$c = new changePortfolio("json/portfolio.json");
 	$c->removePhoto($_GET['fn']);
 
 	header("Location: dashboard.php")
