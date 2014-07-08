@@ -1,6 +1,8 @@
 <?php
 session_start();
 
-require 'checklogin.php';
+require 'includes/checklogin.php';
+
+header("Location: dashboard.php");
 
 ?>

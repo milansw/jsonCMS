@@ -1,14 +1,14 @@
 <?php
 	session_start();
 
-	require 'checklogin.php';
+	require '../includes/checklogin.php';
 	
 	if(!$_FILES['upfile']){
-		header("Location: dashboard.php");
+		header("Location: ../dashboard.php");
 	}
 
-	require 'change.php';
-	require 'simpleimg.php';
+	require '../change.php';
+	require '../simpleimg.php';
 
 	try{
 		switch ($_FILES['upfile']['error']) {
@@ -42,11 +42,11 @@
 		// On this example, obtain safe unique name from its binary data.
 		
 		$fn = sha1_file($_FILES['upfile']['tmp_name']);
-		$uploadpath = sprintf('photos/%s.%s',
+		$uploadpath = sprintf('../photos/%s.%s',
 				$fn,
 				'jpg'
 			);
-		$thumb_uploadpath = sprintf('photos/%s-%s.%s',
+		$thumb_uploadpath = sprintf('../photos/%s-%s.%s',
 				'thumb',
 				$fn,
 				'jpg'
@@ -81,18 +81,18 @@
 
         try{
 
-	        $c = new changePortfolio("json/portfolio.json");
+	        $c = new changePortfolio("../json/portfolio.json");
 	        $c->addPhoto($fn . ".jpg",$caption);
 
 	    } catch (RuntimeException $e){
 			throw $e;
 		}
 
-        header("Location: dashboard.php");
+        header("Location: ../dashboard.php");
 
 	} catch (RuntimeException $e){
 		flashMessage('danger', $e->getMessage());
-		header("Location: dashboard.php");
+		header("Location: ../dashboard.php");
 	}
 
 ?>

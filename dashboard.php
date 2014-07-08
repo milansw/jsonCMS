@@ -2,7 +2,7 @@
 	session_start();
 	
 	if(!isset($_SESSION['logged_in'])){
-		header("Location: index.php");
+		header("Location: login.php");
 	}
 
 	$f = file_get_contents('json/portfolio.json');
@@ -57,7 +57,7 @@
 
 			<div class="panel panel-default">
 				<div class="panel-body">
-					<form id="upload" class="form-horizontal" action="upload.php" method="post" enctype="multipart/form-data">
+					<form id="upload" class="form-horizontal" action="actions/upload.php" method="post" enctype="multipart/form-data">
 						<input type="hidden" name="MAX_FILE_SIZE" value="10000000" /> 
 						<input type="file" name="upfile" id="upfile"><br><br>
 
@@ -78,7 +78,7 @@
 									echo "<p>" . $p->caption . "<br>";
 									echo "<small>" . date("F j Y, g:i a", $p->date_uploaded) . "</small></p>";
 									echo "<button class='btn btn-primary' data-toggle='modal' data-target='#modal".$count."'>Edit caption</button>";
-									echo "<a href='remove.php?fn=".$p->filename."' class='btn btn-danger'>Remove photo</a>";
+									echo "<a href='actions/remove.php?fn=".$p->filename."' class='btn btn-danger'>Remove photo</a>";
 								echo "</div>";
 							echo "</div>";
 
@@ -102,7 +102,7 @@
 
 			<div class="panel panel-default">
 				<div class="panel-body">
-					<form action="addgroup.php" class="form-inline" id="addgroup" method="post">
+					<form action="actions/addgroup.php" class="form-inline" id="addgroup" method="post">
 						<input type="text" class="form-control" name="groupname" placeholder="Group name">
 						<input type="submit" value="Add New Group" class="btn btn-info">
 					</form>
@@ -119,13 +119,13 @@
 
 						echo "<div class='panel-heading'>";
 							echo $group;
-							echo sprintf("<a class='pull-right btn btn-danger btn-xs' href='removegroup.php?group=%s'><span class='glyphicon glyphicon-remove'></span> Remove Group</a>",$group);
+							echo sprintf("<a class='pull-right btn btn-danger btn-xs' href='actions/removegroup.php?group=%s'><span class='glyphicon glyphicon-remove'></span> Remove Group</a>",$group);
 						echo "</div>";
 
 
 						echo "<div class='panel-body'>";
 						?>
-						<form action="changevar.php" method="post" class="form-horizontal editvar" id="addnewvar">
+						<form action="actions/changevar.php" method="post" class="form-horizontal editvar" id="addnewvar">
 							<?php echo sprintf("<input type='hidden' name='group' value='%s'>",$group); ?>
 							<div class="row">
 								<div class="col-sm-2">
@@ -141,7 +141,7 @@
 						</form>
 						<?php
 							foreach($info as $var=>$value){
-								echo sprintf("<form action='changevar.php' method='post' class='form-horizontal editvar' id='%s_%s'>",$group,$var);
+								echo sprintf("<form action='actions/changevar.php' method='post' class='form-horizontal editvar' id='%s_%s'>",$group,$var);
 									echo sprintf("<input type='hidden' name='group' value='%s'>",$group);
 										echo "<div class='row'>";
 											echo "<div class='col-sm-2'>";
@@ -153,7 +153,7 @@
 											echo "</div>";
 											echo "<div class='col-sm-2'>";
 												echo "<input class='btn btn-info btn-block' type='submit' value='Change'>";
-												echo sprintf("<a class='btn btn-danger btn-block' href='removevar.php?group=%s&var=%s'>Remove</a>",$group,$var);
+												echo sprintf("<a class='btn btn-danger btn-block' href='actions/removevar.php?group=%s&var=%s'>Remove</a>",$group,$var);
 											echo "</div>";
 										echo "</div>";
 								echo "</form>";
