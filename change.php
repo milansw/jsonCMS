@@ -142,6 +142,20 @@
 
 		}
 
+		function removeVar($group,$var){
+
+			$f = file_get_contents($this->jfn);
+			$this->json = json_decode($f,true);
+
+			$group = cleanInput($group);
+			$var = cleanInput($var);
+
+			unset($this->json[$group][$var]);
+
+			file_put_contents($this->jfn, json_encode($this->json));
+
+		}
+
 	}
 
 	

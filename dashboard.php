@@ -146,6 +146,7 @@
 											echo "</div>";
 											echo "<div class='col-sm-2'>";
 												echo "<input class='btn btn-info btn-block' type='submit' value='Change'>";
+												echo sprintf("<a class='btn btn-danger btn-block' href='removevar.php?group=%s&var=%s'>Remove</a>",$group,$var);
 											echo "</div>";
 										echo "</div>";
 								echo "</form>";
