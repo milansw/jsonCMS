@@ -6,7 +6,7 @@
 	}
 
 	$f = file_get_contents('json/portfolio.json');
-	$json = json_decode($f);
+	$json = array_reverse(json_decode($f));
 	$g = file_get_contents('json/content.json');
 	$cjson = json_decode($g,true);
 ?>
