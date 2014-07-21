@@ -22,11 +22,12 @@
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 	<script src="js/masonry.pkgd.min.js"></script>
 	<script>
-		var container = $('#rowcontainer');
-		container.masonry({
-		  columnWidth: 200,
-		  itemSelector: '.photo'
-		});
+		$('#rowcontainer').imagesLoaded(function(){
+			$('#rowcontainer').masonry({
+			  columnWidth: 200,
+			  itemSelector: '.photo'
+			});
+		}
 
 		$(function(){
 			$("#content textarea").each(function(){
